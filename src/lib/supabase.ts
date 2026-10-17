@@ -3,8 +3,18 @@ import { Product, Category, StoreSettings, Order, OrderStatus } from '../types';
 
 let supabaseClient: SupabaseClient | null = null;
 
-const DEFAULT_SUPABASE_URL = 'https://fwshxvpuplngzagncikl.supabase.co';
-const DEFAULT_SUPABASE_KEY = 'sb_publishable_VMKBftDZPie6WRyBB4JIMA_kFxHfUP0';
+export const DEFAULT_SUPABASE_URL = 'https://gpvvjmdflneqafwksxou.supabase.co';
+export const DEFAULT_SUPABASE_KEY = 'sb_publishable_AAxHBKxyA-37tC8HxAQkGw_lBry4SRL';
+
+export function cleanSupabaseUrl(raw: string): string {
+  if (!raw) return '';
+  let cleaned = raw.trim();
+  // Strip trailing slashes
+  cleaned = cleaned.replace(/\/+$/, '');
+  // Strip /rest/v1 or /rest endpoint suffix if copied from dashboard
+  cleaned = cleaned.replace(/\/rest(\/v1)?$/i, '');
+  return cleaned;
+}
 
 export function getStoredSupabaseConfig(): { url: string; key: string } {
   const env = (import.meta as any).env || {};
@@ -14,14 +24,16 @@ export function getStoredSupabaseConfig(): { url: string; key: string } {
   const localUrl = localStorage.getItem('mariane_supabase_url') || '';
   const localKey = localStorage.getItem('mariane_supabase_key') || '';
 
-  const url = localUrl.trim() || envUrl.trim() || DEFAULT_SUPABASE_URL;
+  const rawUrl = localUrl.trim() || envUrl.trim() || DEFAULT_SUPABASE_URL;
+  const url = cleanSupabaseUrl(rawUrl);
   const key = localKey.trim() || envKey.trim() || DEFAULT_SUPABASE_KEY;
 
   return { url, key };
 }
 
 export function saveSupabaseConfig(url: string, key: string) {
-  localStorage.setItem('mariane_supabase_url', url.trim());
+  const cleanedUrl = cleanSupabaseUrl(url);
+  localStorage.setItem('mariane_supabase_url', cleanedUrl);
   localStorage.setItem('mariane_supabase_key', key.trim());
   supabaseClient = null; // reset client so next call recreates it
 }
@@ -47,7 +59,7 @@ export async function testSupabaseConnection(url: string, key: string): Promise<
     if (!url || !key) {
       return { success: false, message: 'URL e Chave Anon são obrigatórias.' };
     }
-    const testClient = createClient(url, key);
+    const testClient = createClient(cleanSupabaseUrl(url), key.trim());
     // Try to query products table or check auth
     const { error } = await testClient.from('products').select('id').limit(1);
     if (error) {

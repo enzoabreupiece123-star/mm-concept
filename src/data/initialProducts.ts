@@ -171,8 +171,8 @@ export const INITIAL_SETTINGS: StoreSettings = {
   instagram: '@marianemoreira_concept',
   address: 'Boutique 100% Online • Enviamos para Todo o Brasil',
   adminPin: '1234',
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  supabaseUrl: 'https://gpvvjmdflneqafwksxou.supabase.co',
+  supabaseAnonKey: 'sb_publishable_AAxHBKxyA-37tC8HxAQkGw_lBry4SRL',
   freeShippingAbove: 499.00,
 
   // Visual & Founder Customization
