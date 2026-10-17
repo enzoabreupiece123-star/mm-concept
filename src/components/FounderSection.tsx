@@ -21,7 +21,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ settings }) => {
   const story =
     settings.aboutFounderStory && !settings.aboutFounderStory.includes('alfaiataria') && !settings.aboutFounderStory.includes('alta costura')
       ? settings.aboutFounderStory
-      : 'A MM Concept nasceu do olhar e paixão de Mariane Moreira pela moda feminina. Mariane é a fundadora da marca, atuando diretamente na curadoria, compra e revenda de peças selecionadas a dedo, com alto padrão de qualidade e elegância. Vista-se de confiança. Seja você sempre. Não temos loja física — somos uma boutique 100% online, garantindo atendimento humanizado e envio cuidadoso para todo o Brasil.';
+      : 'A Mariane Moreira Concept nasceu do olhar e paixão de Mariane Moreira pela moda feminina. Mariane é a fundadora da marca, atuando diretamente na curadoria, compra e revenda de peças selecionadas a dedo, com alto padrão de qualidade e elegância. Vista-se de confiança. Seja você sempre. Não temos loja física — somos uma boutique 100% online, garantindo atendimento humanizado e envio cuidadoso para todo o Brasil.';
   const image =
     settings.aboutFounderImage ||
     '/src/assets/images/mm_founder_portrait_1792103266710.jpg';
@@ -55,7 +55,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ settings }) => {
                     {signature}
                   </div>
                   <div className="text-[11px] uppercase tracking-[0.2em] text-[#FFE8B6] font-semibold">
-                    Fundadora • MM Concept
+                    Fundadora • Mariane Moreira Concept
                   </div>
                 </div>
               </div>

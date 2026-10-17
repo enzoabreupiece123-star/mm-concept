@@ -59,23 +59,23 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ settings, onExploreClick
               <BrandLogo size="xs" showText={false} customLogoUrl={settings.logoUrl} />
               <div className="flex items-center gap-2">
                 <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-[#FFE8B6]">
-                  MM Concept
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                <span className="text-[10px] tracking-[0.2em] uppercase text-stone-300 hidden sm:inline">
-                  Mariane Moreira
+                  Mariane Moreira Concept
                 </span>
               </div>
             </div>
 
-            {/* Título Principal */}
-            <div className="space-y-1.5">
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] tracking-tight text-white">
-                MM <span className="italic font-light text-[#FFE8B6]">Concept</span>
+            {/* Título Principal: MM PNG acima de Mariane Moreira Concept */}
+            <div className="space-y-2">
+              <div className="w-20 sm:w-28 mb-1">
+                <img
+                  src="/src/assets/images/mm_concept_logo_transparent.png"
+                  alt="MM"
+                  className="w-full h-auto object-contain filter drop-shadow-md"
+                />
+              </div>
+              <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal leading-[1.15] tracking-[0.14em] uppercase text-white">
+                Mariane Moreira <span className="italic font-light text-[#FFE8B6]">Concept</span>
               </h1>
-              <p className="text-xs sm:text-sm tracking-[0.35em] uppercase text-[#FFE8B6] font-medium pt-0.5">
-                Mariane Moreira
-              </p>
               <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-[#E5B5BA] font-light pt-1">
                 Vista-se de confiança. Seja você sempre.
               </p>
@@ -134,7 +134,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ settings, onExploreClick
                 Mariane Moreira
               </div>
               <div className="text-[10px] text-[#FFE8B6] tracking-wider uppercase truncate">
-                Fundadora • MM Concept
+                Fundadora • Mariane Moreira Concept
               </div>
               <div className="text-[10px] text-stone-300 mt-0.5">
                 Vista-se de confiança

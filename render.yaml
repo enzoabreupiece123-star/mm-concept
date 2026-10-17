@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: mm-concept
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_SUPABASE_URL
+        value: https://gpvvjmdflneqafwksxou.supabase.co
+      - key: VITE_SUPABASE_ANON_KEY
+        value: sb_publishable_AAxHBKxyA-37tC8HxAQkGw_lBry4SRL
+      - key: VITE_STORE_WHATSAPP
+        value: "5511999999999"
+      - key: VITE_STORE_PIX_KEY
+        value: "contato@mmconcept.com.br"
+      - key: VITE_STORE_PIX_NAME
+        value: "MM Concept"
+      - key: VITE_STORE_INSTAGRAM
+        value: "@marianemoreira_concept"

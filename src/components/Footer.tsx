@@ -123,11 +123,11 @@ export const Footer: React.FC<FooterProps> = ({ settings, onOpenAdmin, onOpenGui
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>© {new Date().getFullYear()} MM Concept. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Mariane Moreira Concept. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4 text-stone-400">
             <span>Vista-se de confiança. Seja você sempre.</span>
             <span>•</span>
-            <span>Mariane Moreira</span>
+            <span>MM</span>
           </div>
         </div>
       </div>

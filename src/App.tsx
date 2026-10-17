@@ -565,7 +565,7 @@ export default function App() {
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#8e6e34]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Coleção MM Concept</span>
+              <span>Coleção Mariane Moreira Concept</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1c1917] mt-1 capitalize">
               {selectedCategory === 'todas'
