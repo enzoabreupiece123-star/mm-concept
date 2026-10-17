@@ -1,0 +1,147 @@
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  original_price?: number | null;
+  images: string[];
+  description: string;
+  details?: string[];
+  sizes: string[];
+  colors: string[];
+  stock_quantity?: number;
+  in_stock: boolean;
+  is_new?: boolean;
+  is_featured?: boolean;
+  created_at?: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+}
+
+export interface CartItem {
+  id: string; // unique cart item id (e.g. productId_size_color)
+  product: Product;
+  selectedSize: string;
+  selectedColor: string;
+  quantity: number;
+}
+
+export type DeliveryType = 'pickup' | 'delivery';
+
+export interface CustomerUser {
+  id: string;
+  email: string;
+  name: string;
+  phone: string;
+  cpf?: string;
+  cep?: string;
+  street?: string;
+  number?: string;
+  complement?: string;
+  neighborhood?: string;
+  city?: string;
+  state?: string;
+  createdAt?: string;
+}
+
+export interface CustomerOrderData {
+  name: string;
+  phone: string;
+  deliveryType: DeliveryType;
+  email?: string;
+  customerId?: string;
+  cep?: string;
+  street?: string;
+  number?: string;
+  complement?: string;
+  neighborhood?: string;
+  city?: string;
+  state?: string;
+  notes?: string;
+}
+
+export type OrderStatus = 'pending' | 'confirmed' | 'dispatched' | 'cancelled';
+
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  productImage: string;
+  size: string;
+  color: string;
+  price: number;
+  quantity: number;
+}
+
+export interface Order {
+  id: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail?: string;
+  customerId?: string;
+  deliveryType: DeliveryType;
+  cep?: string;
+  street?: string;
+  number?: string;
+  complement?: string;
+  neighborhood?: string;
+  city?: string;
+  state?: string;
+  notes?: string;
+  items: OrderItem[];
+  subtotal: number;
+  total: number;
+  paymentMethod: 'pix' | 'whatsapp';
+  status: OrderStatus;
+  stockDeducted?: boolean;
+  receiptImage?: string;
+  createdAt: string;
+}
+
+export interface StoreSettings {
+  storeName: string;
+  tagline: string;
+  whatsapp: string; // digits only with country code, e.g. 5511999999999
+  pixKey: string;
+  pixKeyType: 'cpf' | 'cnpj' | 'email' | 'phone' | 'random';
+  pixBeneficiary: string;
+  pixCity: string;
+  instagram: string;
+  address: string;
+  adminPin: string;
+  supabaseUrl: string;
+  supabaseAnonKey: string;
+  freeShippingAbove?: number;
+
+  // Visual & Founder Customization (Mariane Moreira Concept)
+  logoUrl?: string; // Logomarca oficial circular
+  heroImageUrl?: string; // Foto da dona ao fundo no início do site
+  heroTitle?: string;
+  heroSubtitle?: string;
+  heroBadge?: string;
+  heroCtaText?: string;
+  heroSecondaryCtaText?: string;
+  heroOverlayStyle?: 'dark' | 'champagne' | 'split';
+  heroShowOwnerCard?: boolean;
+
+  // Announcement Bar (Ticker superior)
+  announcementText?: string;
+  showAnnouncement?: boolean;
+
+  // Founder Section ("Sobre a Dona" / A Essência da Marca)
+  aboutFounderEnabled?: boolean;
+  aboutFounderTitle?: string;
+  aboutFounderSubtitle?: string;
+  aboutFounderStory?: string;
+  aboutFounderImage?: string;
+  aboutFounderQuote?: string;
+  aboutFounderSignature?: string;
+
+  // Commercial perks
+  installmentMax?: number; // ex: 6
+  pixDiscountPercent?: number; // ex: 5
+}
